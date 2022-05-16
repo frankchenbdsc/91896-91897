@@ -9,6 +9,9 @@ window.configure(bg = "white")
 window.grid_columnconfigure(0,weight=1)
 window.grid_columnconfigure(1,weight=1)
 
+def instructions():
+    enter_details.destroy()
+
 lb1 = Label(window, text = "Quiz", bg = "white", fg = "black", borderwidth=1, relief="solid")
 lb1.grid(row = 0, column = 0, columnspan = 2, sticky = 'ew')
 
@@ -27,7 +30,7 @@ input_age.grid(row = 3, column = 0, sticky = "e", pady = 8)
 e2 = Entry(window, borderwidth=1, relief="solid")
 e2.grid(row = 3, column = 1, sticky = "w") 
 
-b_continue = Button(window, text = "continue")
+b_continue = Button(window, text = "continue", command = instructions)
 b_continue.grid(row = 4, column = 0, columnspan = 2, pady = 30)
 
 
