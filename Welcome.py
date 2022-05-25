@@ -10,25 +10,40 @@ window.configure(bg = "white")
 window.grid_columnconfigure(0,weight=1)
 window.grid_columnconfigure(1,weight=1)
 
-def instructions():
-    global name
-    global age
-    name = (e1.get()) #Gets the value in the entry box
-    try:
-        age = int(e2.get())
-    except ValueError:
-        enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
-    if name == "":
-        enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
-    if age < 0:
-        enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
-    e1.destroy()
-    e2.destroy()
-    input_name.destroy()
-    input_age.destroy()
-    b_continue.destroy()
-    enter_details.config(text = "This quiz is multi-choice")
-    
+class ButtonClass:
+    def __init__(self, name, version):
+        self.name = name
+        self.version = version
+        if self.name == "Continue" and self.version == 1:
+            self.button = Button(window, text=self.name, command=self.instructions1)
+        elif self.name == "Continue" and self.version == 2:
+            self.button = Button(window, text=self.name, command=self.instructions2)
+        else:
+            self.button = Button(window, text=self.name, command=self.instructions2)
+
+    def instructions1(self):
+        global name
+        global age
+        name = (e1.get()) #Gets the value in the entry box
+        try:
+            age = int(e2.get())
+        except ValueError:
+            enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
+        if name == "":
+            enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
+        if age < 0:
+            enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
+        e1.destroy()
+        e2.destroy()
+        input_name.destroy()
+        input_age.destroy()
+        b_continue.button.destroy()
+        enter_details.config(text = "This quiz is multi-choice. You will be provided with an example of a language technique \nand you will have to identify it by answering with one of the four choices.")
+        b_continue2 = ButtonClass("Continue", 2)
+        b_continue2.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
+
+
+
 
     #enter_details.destroy()
 
@@ -50,8 +65,9 @@ input_age.grid(row = 3, column = 0, sticky = "e", pady = 8)
 e2 = Entry(window, borderwidth=1, relief="solid")
 e2.grid(row = 3, column = 1, sticky = "w") 
 
-b_continue = Button(window, text = "continue", command = instructions)
-b_continue.grid(row = 4, column = 0, columnspan = 2, pady = 30)
+#b_continue = Button(window, text = "continue", command = instructions)
+b_continue = ButtonClass("Continue", 1)
+b_continue.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
 
 
 
