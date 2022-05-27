@@ -33,14 +33,15 @@ class ButtonClass:
             enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
         if age < 0:
             enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
-        e1.destroy()
-        e2.destroy()
-        input_name.destroy()
-        input_age.destroy()
-        b_continue.button.destroy()
-        enter_details.config(text = "This quiz is multi-choice. You will be provided with an example of a language technique \nand you will have to identify it by answering with one of the four choices.")
-        b_continue2 = ButtonClass("Continue", 2)
-        b_continue2.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
+        else:
+            e1.destroy()
+            e2.destroy()
+            input_name.destroy()
+            input_age.destroy()
+            b_continue.button.destroy()
+            enter_details.config(text = "This quiz is multi-choice. You will be provided with an example of a language technique \nand you will have to identify it by answering with one of the four choices.")
+            b_continue2 = ButtonClass("Continue", 2)
+            b_continue2.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
 
 
 

@@ -1,3 +1,4 @@
+from distutils.command.build import build
 from tkinter import *
 from PIL import *
 import random
@@ -244,49 +245,113 @@ adict = {
 #List where words that correspond to the question dictionary can be selected from
 qlist = ["Allusion", "Hyperbole", "Metaphor", "Simile", "Alliteration", "Salutation", "Interrogative", "Imperative", "Abbreviation", "Triple-Construction", "Verb", "Superlative", "Preposition", "Colloquialism", "Personification", "Cliche", "Onomatopoeia", "Comparative", "Contraction", "Euphemism", "Anecdote", "Allegory", "Jargon", "Neologism", "Irony", "Endearment", "Homophone", "Homonym", "Adjective", "Acronym", "Coinage"]
 
-question = random.choice(qlist)
-print(question)
+window = Tk()
+window.geometry("500x350") #Resizing window
+window.title("Language Features Quiz") #title
+window.configure(bg = "white")
+window.grid_columnconfigure(0,weight=1)
+window.grid_columnconfigure(1,weight=1)
 
-from tkinter import*
-root = Tk()
+class ButtonClass:
+    def __init__(self, name, version):
+        self.name = name
+        self.version = version
+        if self.name == "Continue" and self.version == 1:
+            self.button = Button(window, text=self.name, command=self.instructions1)
+        elif self.name == "Continue" and self.version == 2:
+            self.button = Button(window, text=self.name, command=self.instructions2)
+        else:
+            self.button = Button(window, text=self.name, command=self.choices)
 
-#This code resizes the window and packs it inside the window
-t1 = Text(root,width = 250, height = 9)
-t1.pack()
+    def instructions1(self):
+        global name
+        global age
+        name = (e1.get()) #Gets the value in the entry box
+        try:
+            age = int(e2.get())
+        except ValueError:
+            enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
+        if name == "":
+            enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
+        if age < 0:
+            enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
+        else:
+            b_continue2 = ButtonClass("Continue", 2)
+            b_continue2.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
 
-t1.insert(END,qdict[question])
+    def instructions2(self):
+        self.button.destroy()
+        self.question = random.choice(qlist)
+        global questions
+        global a
+        global b
+        global c
+        global d
+        questions = Label(window,text=qdict[self.question], bg="white")
+        questions.grid(row=1, column=0)
+        a = ButtonClass("A", self.question)
+        a.button.grid(row=2, column=0)
+        b = ButtonClass("B", self.question)
+        b.button.grid(row=3, column=0)
+        c = ButtonClass("C", self.question)
+        c.button.grid(row=4, column=0)
+        d = ButtonClass("D", self.question)
+        d.button.grid(row=5, column=0)
 
-e1 = Entry(root)
-e1.pack()
+    def choices(self):
+        self.question = self.version
+        if self.name == adict[self.question]:
+            response = Label(window,text="correct", bg="white")
+            response.grid(row=6, column=0)
+            global questions
+            global a
+            global b
+            global c
+            global d
+            self.questions.destroy()
+            self.a.button.destroy()
+            self.b.button.destroy()
+            self.c.button.destroy()
+            self.d.button.destroy()
+            x = ButtonClass("Continue", 2)
+            x.button.grid(row=6, column=0)
 
-def enter(): 
-    g = str(e1.get())
-    if g == adict[question]:
-        t1.insert(END,"yeah")
-    else:
-        t1.insert(END,"nah")
+        else:
+            response = Label(window,text="incorrect", bg="white")
+            response.grid(row=6, column=0)
+            global questions
+            global a
+            global b
+            global c
+            global d
+            questions.destroy()
+            a.button.destroy()
+            b.button.destroy()
+            c.button.destroy()
+            d.button.destroy()
+            x = ButtonClass("Continue", 2)
+            x.button.grid(row=6, column=0)
 
 
-
-    
-#def add():
-    x = int(e1.get()) #Allows the entry of first number in entry box1
-    t1.insert(END,)
-    t1.insert(END,"\n")
-
-b1 = Button(root,text = "Enter",command = enter)
-b1.pack()
-
-
-
-
-
-
+x = ButtonClass("Continue", 2)
+x.button.grid(row=0, column=0)
 
 
 
 
 
 
-root.mainloop()
+
+
+
+
+
+
+
+
+window.mainloop()
+
+
+
+
 
