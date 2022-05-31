@@ -21,8 +21,6 @@ class ButtonClass: #Sets up a class called ButtonClass
             self.button = Button(window, text=self.name, command=self.instructions2)
 
     def instructions1(self): #This function is called when a button is pressed
-        global name
-        global age
         name = (e1.get()) #Gets the value in the entry box
         try: #it sees if the values entered are valid, if so it then displays the instructions
             age = int(e2.get())
@@ -66,4 +64,4 @@ b_continue = ButtonClass("Continue", 1)
 b_continue.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
 
 
-window.mainloop()
+window.mainloop() 
