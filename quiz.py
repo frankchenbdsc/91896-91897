@@ -31,14 +31,30 @@ class ButtonClass: #Sets up a class called ButtonClass
                 self.button_c = Button(window, text=self.version, command=lambda:self.choices("C"))
             elif self.version == "D":
                 self.button_d = Button(window, text=self.version, command=lambda:self.choices("D"))
+            elif self.version == "Exit":
+                self.button_exit = Button(window, text=self.version, command=self.exitbutton)
+
+    def exitbutton(self):
+        self.questions.destroy()
+        self.button_a.destroy()
+        self.button_b.destroy()
+        self.button_c.destroy()
+        self.button_d.destroy()
+        self.scorelbl.destroy()
+        self.button_exit.destroy()
+        endscreen = Label(window, text = "Thank you for playing! You got " + str(self.correct) + "/" + str(self.total) + " correct!", bg="white")
+        endscreen.grid(row=1, columnspan = 2, column=0)
+        self.buttoncreate("Continue", 2)
+        self.button.config(text = "Retry")
+        self.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
+
 
     def score(self):
         self.correct = 0
         self.total = 0
-        self.score = Label(window, text= "Score: " + str(self.correct) + "/" + str(self.total) , bg="white", borderwidth=1, relief="solid")
-        self.score.grid(row=6, column=0, sticky="SE")
+        self.scorelbl = Label(window, text= "Score: " + str(self.correct) + "/" + str(self.total) , bg="white", borderwidth=1, relief="solid")
+        self.scorelbl.grid(row=6, column=1, sticky="SE")
    
-
     def instructions1(self): #This function is called when a button is pressed
         self.name = (e1.get()) #Gets the value in the entry box
         try: #it sees if the values entered are valid, if so it then displays the instructions
@@ -57,7 +73,7 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.button.destroy()
         self.question = random.choice(question_storage.qlist)
         self.questions = Label(window,text=question_storage.qdict[self.question], bg="white")
-        self.questions.grid(row=1, column=0)
+        self.questions.grid(row=1, columnspan = 2, column=0)
         self.buttoncreate("Button", "A")
         self.button_a.grid(row=2, column=0)
         self.buttoncreate("Button", "B")
@@ -67,6 +83,8 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.buttoncreate("Button", "D")
         self.button_d.grid(row=5, column=0)
         self.score()
+        self.buttoncreate("Button", "Exit")
+        self.button_exit.grid(row=6, column=0)
 
     def choices(self, choice): #This is the function for each of the mutli-choice buttons, when clicked it will see if the answer matches with the button pressed, the button then displays whether it was correct, destroys itself and creates another button
         if choice == question_storage.adict[self.question]: #When button pressed is incorrect, displays incorrect message and clears window
