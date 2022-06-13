@@ -32,6 +32,13 @@ class ButtonClass: #Sets up a class called ButtonClass
             elif self.version == "D":
                 self.button_d = Button(window, text=self.version, command=lambda:self.choices("D"))
 
+    def score(self):
+        self.correct = 0
+        self.total = 0
+        self.score = Label(window, text= "Score: " + str(self.correct) + "/" + str(self.total) , bg="white", borderwidth=1, relief="solid")
+        self.score.grid(row=6, column=0, sticky="SE")
+   
+
     def instructions1(self): #This function is called when a button is pressed
         self.name = (e1.get()) #Gets the value in the entry box
         try: #it sees if the values entered are valid, if so it then displays the instructions
@@ -59,11 +66,15 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.button_c.grid(row=4, column=0)
         self.buttoncreate("Button", "D")
         self.button_d.grid(row=5, column=0)
+        self.score()
 
     def choices(self, choice): #This is the function for each of the mutli-choice buttons, when clicked it will see if the answer matches with the button pressed, the button then displays whether it was correct, destroys itself and creates another button
         if choice == question_storage.adict[self.question]: #When button pressed is incorrect, displays incorrect message and clears window
             self.response = Label(window,text="correct", bg="white")
             self.response.grid(row=5, column=0)
+            self.correct += 1
+            self.total += 1
+            self.score.config(text="Score: " + str(self.correct) + "/" + str(self.total))
             self.questions.destroy()
             self.button_a.destroy()
             self.button_b.destroy()
@@ -75,6 +86,8 @@ class ButtonClass: #Sets up a class called ButtonClass
         else: #When button pressed is incorrect, displays incorrect message and clears window
             self.response = Label(window,text="incorrect", bg="white")
             self.response.grid(row=5, column=0)
+            self.total += 1
+            self.score.config(text="Score: " + str(self.correct) + "/" + str(self.total))
             self.questions.destroy()
             self.button_a.destroy()
             self.button_b.destroy()
