@@ -34,7 +34,7 @@ class ButtonClass: #Sets up a class called ButtonClass
             elif self.version == "Exit":
                 self.button_exit = Button(window, text=self.version, command=self.exitbutton)
 
-    def exitbutton(self):
+    def exitbutton(self): #Clears the window and finds the accuracy of the user and displays their score and accuracy and the retry button
         self.questions.destroy()
         self.button_a.destroy()
         self.button_b.destroy()
@@ -42,14 +42,26 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.button_d.destroy()
         self.scorelbl.destroy()
         self.button_exit.destroy()
-        endscreen = Label(window, text = "Thank you for playing! You got " + str(self.correct) + "/" + str(self.total) + " correct!", bg="white")
-        endscreen.grid(row=1, columnspan = 2, column=0)
+        try: #If the response label is there, it will destroy it else it won't do anything
+            self.response.destroy()
+        except AttributeError:
+            ""
+        try: #If the response label is there, it will destroy it else it won't do anything
+            self.button.destroy()
+        except AttributeError:
+            ""
+        try:
+            self.accuracy = (self.correct / self.total) * 100 #Sets the variable to hold the accuracy%
+        except ZeroDivisionError:
+            self.accuracy = 0 #If the user has no questions answered, the accuracy is 0%
+        self.accuracy = round(self.accuracy, 2)
+        self.endscreen = Label(window, text = "Thank you for playing! You got " + str(self.correct) + "/" + str(self.total) + " correct.\n" + "Your accuracy is: " + str(self.accuracy) + "%", bg="white")
+        self.endscreen.grid(row=1, columnspan = 2, column=0)
         self.buttoncreate("Continue", 2)
         self.button.config(text = "Retry")
         self.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
-
-
-    def score(self):
+        
+    def score(self): #This function displays a label with the score and creates two variables that increase when questions are answered and when questions are answered correctly
         self.correct = 0
         self.total = 0
         self.scorelbl = Label(window, text= "Score: " + str(self.correct) + "/" + str(self.total) , bg="white", borderwidth=1, relief="solid")
@@ -71,6 +83,10 @@ class ButtonClass: #Sets up a class called ButtonClass
 
     def instructions2(self): #This chooses a technique from the list, displays the question for the technique, creates and places buttons on the window that can be clicked as the answer
         self.button.destroy()
+        try:
+            self.endscreen.destroy()
+        except AttributeError:
+            ""
         self.question = random.choice(question_storage.qlist)
         self.questions = Label(window,text=question_storage.qdict[self.question], bg="white")
         self.questions.grid(row=1, columnspan = 2, column=0)
@@ -92,7 +108,7 @@ class ButtonClass: #Sets up a class called ButtonClass
             self.response.grid(row=5, column=0)
             self.correct += 1
             self.total += 1
-            self.score.config(text="Score: " + str(self.correct) + "/" + str(self.total))
+            self.scorelbl.config(text="Score: " + str(self.correct) + "/" + str(self.total))
             self.questions.destroy()
             self.button_a.destroy()
             self.button_b.destroy()
@@ -105,7 +121,7 @@ class ButtonClass: #Sets up a class called ButtonClass
             self.response = Label(window,text="incorrect", bg="white")
             self.response.grid(row=5, column=0)
             self.total += 1
-            self.score.config(text="Score: " + str(self.correct) + "/" + str(self.total))
+            self.scorelbl.config(text="Score: " + str(self.correct) + "/" + str(self.total))
             self.questions.destroy()
             self.button_a.destroy()
             self.button_b.destroy()
@@ -146,7 +162,7 @@ x.button.grid(row=0, column=0) #Places the button on the window
 
 
 
-window.mainloop()
+window.mainloop() #The end of the window
 
 
 
