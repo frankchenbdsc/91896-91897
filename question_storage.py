@@ -27,7 +27,8 @@ B: Imperative
 C: Abbreviation
 D: Coinage
 Answer: """,
-    "Alliteration": """What is the Language Technique used here? The powerful punch pounded Peter.
+    "Alliteration": """What is the Language Technique used here? The powerful 
+punch pounded Peter.
 A: Salutation
 B: Verbs
 C: Alliteration
@@ -39,8 +40,8 @@ B: Interrogative
 C: Comparative
 D: Acronym
 Answer: """,
-    "Interrogative": """What is the Language Technique used here? What were you 
-doing at 8:30am?
+    "Interrogative": """What is the Language Technique used here? What were 
+you doing at 8:30am?
 A: Jargon
 B: Superlative
 C: Interrogative
@@ -58,8 +59,8 @@ B: Abbreviation
 C: Contraction
 D: Imperative
 Answer: """,
-    "Triple-Construction": """What is the Language Technique used here? We will stand tall, we will not fall
-and we will reclaim our land!
+    "Triple-Construction": """What is the Language Technique used here? We 
+will stand tall, we will not fall and we will reclaim our land!
 A: Allusion
 B: Preposition
 C: Contraction
@@ -71,65 +72,74 @@ B: Verbs
 C: Personification
 D: Imperative
 Answer: """,
-    "Superlative": """What is the Language Technique used here? The best, fastest, strongest.
+    "Superlative": """What is the Language Technique used here? The best, 
+fastest, strongest.
 A: Allusion
 B: Verbs
 C: Personification
 D: Superlative
 Answer: """,
-    "Preposition": """What is the Language Technique used here? Below, on top, to the right.
+    "Preposition": """What is the Language Technique used here? Below, 
+on top, to the right.
 A: Preposition
 B: Contraction
 C: Personification
 D: Adjective
 Answer: """,
-    "Colloquialism": """What is the Language Technique used here? I 'ain't gonna' leave it at that.
+    "Colloquialism": """What is the Language Technique used here? 
+I 'ain't gonna' leave it at that.
 A: Preposition
 B: Contraction
 C: Colloquialism
 D: Adjective
 Answer: """,
-    "Personification": """What is the Language Technique used here? The chair let out a groan as 
-Mr Turner's ample weight settled on top of it.
+    "Personification": """What is the Language Technique used here? 
+The chair let out a groan as Mr Turner's ample weight 
+settled on top of it.
 A: Preposition
 B: Contraction
 C: Personification
 D: Endearment
 Answer: """,
-    "Cliche": """What is the Language Technique used here? Roses are red, violets are blue...
-The apple doesn't fall far from the tree.
+    "Cliche": """What is the Language Technique used here? Roses 
+are red, violets are blue... The apple doesn't fall far from the tree.
 A: Cliche
 B: Contraction
 C: Personification
 D: Endearment
 Answer: """,
-    "Onomatopoeia": """What is the Language Technique used here? Boom! Tick Tock
-Ding Dong
+    "Onomatopoeia": """What is the Language Technique used here? Boom! 
+Tick Tock, Ding Dong
 A: Cliche
 B: Onomatopoeia
 C: Allegory
 D: Endearment
 Answer: """,
-    "Comparative": """What is the Language Technique used here? Bigger, smaller, faster
+    "Comparative": """What is the Language Technique used here? Bigger, 
+smaller, faster
 A: Comparative
 B: Onomatopoeia
 C: Allegory
 D: Endearment
 Answer: """,
-    "Contraction": """What is the Language Technique used here? He'd, He'll, Won't
+    "Contraction": """What is the Language Technique used here? He'd, 
+He'll, Won't
 A: Contraction
 B: Onomatopoeia
 C: Allegory
 D: Endearment
 Answer: """,
-    "Euphemism": """What is the Language Technique used here? Kicked the bucket, departed, passed away
+    "Euphemism": """What is the Language Technique used here? Kicked 
+the bucket, 
+departed, passed away
 A: Contraction
 B: Euphemism
 C: Allegory
 D: Endearment
 Answer: """,
-    "Anecdote": """What is this Language Technique? A short story to make people think
-or laugh
+    "Anecdote": """What is this Language Technique? A short story 
+to make 
+people think or laugh
 A: Contraction
 B: Euphemism
 C: Anecdote
@@ -142,33 +152,36 @@ B: Euphemism
 C: Anecdote
 D: Allegory
 Answer: """,
-    "Jargon": """What is the Language Technique used here? AWOL, Financial Position,
-Trade Statement, Gross Profit
+    "Jargon": """What is the Language Technique used here? AWOL, 
+Financial Position, Trade Statement, Gross Profit
 A: Jargon
 B: Euphemism
 C: Allegory
 D: Endearment
 Answer: """,
-    "Neologism": """What is this Language Technique? A mix of two words that forms a new word.
-Smoke and fog make Smog.
+    "Neologism": """What is this Language Technique? A mix of two words
+that forms a new word. Smoke and fog make Smog.
 A: Jargon
 B: Neologism
 C: Allegory
 D: Endearment
 Answer: """,
-    "Irony": """What is the Language Technique used here? The car crashed against a drive safe sign.
+    "Irony": """What is the Language Technique used here? The car crashed 
+against a drive safe sign.
 A: Jargon
 B: Euphemism
 C: Irony
 D: Endearment
 Answer: """,
-    "Endearment": """What is the Language Technique used here? Baby, Sweetheart, Sugar.
+    "Endearment": """What is the Language Technique used here? Baby, 
+Sweetheart, Sugar.
 A: Jargon
 B: Euphemism
 C: Irony
 D: Endearment
 Answer: """,
-    "Homophone": """What is the Language Technique used here? Bald, Bold, Reign, Rain
+    "Homophone": """What is the Language Technique used here? Bald, Bold, 
+Reign, Rain
 A: Homophone
 B: Homonym
 C: Irony
@@ -187,14 +200,15 @@ B: Adjective
 C: Irony
 D: Coinage
 Answer: """,
-    "Acronym": """What is the Language Technique used here? USA (United States of America,
-NSA (National Security Agency).
+    "Acronym": """What is the Language Technique used here? 
+USA (United States of America, NSA (National Security Agency).
 A: Acronym
 B: Adjective
 C: Irony
 D: Coinage
 Answer: """,
-    "Coinage": """What is this Language Technique? A new word that a person made, Google
+    "Coinage": """What is this Language Technique? A new word 
+that a person made, Google
 A: Acronym
 B: Adjective
 C: Irony

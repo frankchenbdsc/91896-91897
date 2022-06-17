@@ -78,8 +78,8 @@ class ButtonClass: #Sets up a class called ButtonClass
         if self.age < 0:
             enter_details.config(text = "The details entered may be incorrect, please make sure it is typed correctly")
         else:
-            b_continue2 = ButtonClass("Continue", 2) #This creates another object that will lead to the quiz part of the program
-            b_continue2.button.grid(row = 4, column = 0, columnspan = 2, pady = 30) #This places the button created by the class
+            self.buttoncreate("Continue", 2) #This creates another object that will lead to the quiz part of the program
+            self.button.grid(row = 4, column = 0, columnspan = 2, pady = 30) #This places the button created by the class
 
     def instructions2(self): #This chooses a technique from the list, displays the question for the technique, creates and places buttons on the window that can be clicked as the answer
         self.button.destroy()
@@ -145,22 +145,29 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.buttoncreate("Button", "D")
         self.button_d.grid(row=5, column=0)
 
-x = ButtonClass() #Creates a class
-x.buttoncreate("Continue", 2)
-x.button.grid(row=0, column=0) #Places the button on the window
+#The lines of code underneath sets up labels, entry boxes and the first continue button in the GUI window
 
+lb1 = Label(window, text = "Language Features Quiz", bg = "white", fg = "black", borderwidth=1, relief="solid")
+lb1.grid(row = 0, column = 0, columnspan = 2, sticky = 'ew')
 
+enter_details = Label(window, text = "Please enter your details before participating in the quiz", height=6, bg = "white")
+enter_details.grid(row = 1, column = 0, columnspan = 2, sticky = "ew")
 
+input_name = Label(window, text = "Name:", bg = "white", fg = "black")
+input_name.grid(row = 2, column = 0, sticky = "e")
 
+e1 = Entry(window, borderwidth=1, relief="solid")
+e1.grid(row = 2, column = 1, sticky = "w") 
 
+input_age = Label(window, text = "Age:", bg = "white", fg = "black")
+input_age.grid(row = 3, column = 0, sticky = "e", pady = 8)
 
+e2 = Entry(window, borderwidth=1, relief="solid")
+e2.grid(row = 3, column = 1, sticky = "w") 
 
-
-
-
-
-
-
+b_continue = ButtonClass()
+b_continue.buttoncreate("Continue", 1)
+b_continue.button.grid(row = 4, column = 0, columnspan = 2, pady = 30)
 
 window.mainloop() #The end of the window
 
