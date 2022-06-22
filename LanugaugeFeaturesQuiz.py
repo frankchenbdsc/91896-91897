@@ -85,13 +85,13 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.scorelbl = Label(window, text= "Score: " + str(self.correct) + "/" + str(self.total) , bg="white", borderwidth=1, relief="solid")
         self.scorelbl.grid(row=6, column=1, sticky="SE", pady = 15)
 
-    def choices(self, choice): #This is the function for each of the mutli-choice buttons, when clicked it will see if the answer matches with the button pressed, the button then displays whether it was correct, destroys itself and creates another button
+    def choices(self, choice): #This is the function for each of the mutli-choice buttons, when clicked it will see if the answer retrieved from the imported JSON file matches with the button pressed, the button then displays whether it was correct, destroys itself and creates another button
         if choice == question_storage.adict[self.question]: #When button pressed is incorrect, displays incorrect message and clears window
             self.response = Label(window,text="That was correct!", bg="white", height = 5)
             self.response.grid(row=2, column=0, columnspan = 2)
-            self.correct += 1
-            self.total += 1
-            self.scorelbl.config(text="Score: " + str(self.correct) + "/" + str(self.total))
+            self.correct += 1 #Adds one to correct answers inputted
+            self.total += 1 #Adds one to total answers inputted
+            self.scorelbl.config(text="Score: " + str(self.correct) + "/" + str(self.total)) #Updates the score
             self.questions.destroy()
             self.button_a.destroy()
             self.button_b.destroy()
@@ -103,8 +103,8 @@ class ButtonClass: #Sets up a class called ButtonClass
         else: #When button pressed is incorrect, displays incorrect message and clears window
             self.response = Label(window,text="That was incorrect, the answer was: " + str(self.question), bg="white", height = 5)
             self.response.grid(row=2, column=0, columnspan = 2)
-            self.total += 1
-            self.scorelbl.config(text="Score: " + str(self.correct) + "/" + str(self.total))
+            self.total += 1 #Adds one to total answers inputted
+            self.scorelbl.config(text="Score: " + str(self.correct) + "/" + str(self.total)) #Updates the score
             self.questions.destroy()
             self.button_a.destroy()
             self.button_b.destroy()
