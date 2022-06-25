@@ -19,9 +19,9 @@ class ButtonClass: #Sets up a class called ButtonClass
             if self.version == 1: #Each of these will create a button that has a different command
                 self.button = Button(window, text=self.name, bg = "white", borderwidth=1, relief="solid", command=self.instructions1)
             elif self.version == 2:
-                self.button = Button(window, text=self.name, bg = "white", borderwidth=1, relief="solid", command=self.instructions2)
+                self.button = Button(window, text=self.name, bg = "white", borderwidth=1, relief="solid", command=self.quizstarter1)
             elif self.version == 3:
-                self.button = Button(window, text=self.name, bg = "white", borderwidth=1, relief="solid", command=self.instructions3)
+                self.button = Button(window, text=self.name, bg = "white", borderwidth=1, relief="solid", command=self.quizcontinue)
         elif self.name == "Button":
             if self.version == "A":
                 self.button_a = Button(window, text=self.version, bg = "white", borderwidth=1, relief="solid", width = 8, command=lambda:self.choices("A"))
@@ -148,7 +148,7 @@ class ButtonClass: #Sets up a class called ButtonClass
             self.buttoncreate("Continue", 2) #This creates another object that will lead to the quiz part of the program
             self.button.grid(row = 4, column = 0, columnspan = 2, pady = 30) #This places the button created by the class
 
-    def instructions2(self): #This chooses a technique from the list, displays the question for the technique, creates and places buttons on the window that can be clicked as the answer
+    def quizstarter1(self): #This chooses a technique from the list, displays the question for the technique, creates and places buttons on the window that can be clicked as the answer
         self.button.destroy()
         try:
             self.endscreen.destroy()
@@ -173,7 +173,7 @@ class ButtonClass: #Sets up a class called ButtonClass
         self.buttoncreate("Button", "Exit")
         self.button_exit.grid(row=6, column=0, sticky = "w", pady = 15)
 
-    def instructions3(self): #This chooses a technique from the list, displays the question for the technique, creates and places buttons on the window that can be clicked as the answer
+    def quizcontinue(self): #This chooses a technique from the list, displays the question for the technique, creates and places buttons on the window that can be clicked as the answer
         self.response.destroy()
         self.button.destroy()
         self.question = random.choice(question_storage.qlist)
